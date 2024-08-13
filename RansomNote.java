@@ -12,9 +12,9 @@ public class RansomNote {
             return;
         }
 
-        String note = "ab";
+//        String note = "ab";
 //        String note = "aab";
-//        String note = "aaab";
+        String note = "aaab";
         String magazine = "baa";
         
         RansomNote ransomNote = new RansomNote(note, magazine);
@@ -54,12 +54,7 @@ public class RansomNote {
 
         // tabulate the count per character of the magazine
         magazineList.forEach(letter -> {
-            if (magazineMap.containsKey(letter)) {
-                int previous = magazineMap.get(letter);
-                magazineMap.put(letter, previous + 1);
-            } else {
-                magazineMap.put(letter, 1);
-            }
+            magazineMap.put(letter, magazineMap.getOrDefault(letter, 0) + 1);
         });
 
         final List<Character> noteList =
